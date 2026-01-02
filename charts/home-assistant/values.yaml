@@ -312,14 +312,14 @@ persistence:
   # Size of the persistent volume claim
   size: 5Gi
   # Storage class for the persistent volume claim
-  storageClass: "freenas-nfs-csi"
+  storageClass: "freenas-iscsi-csi"
   # Name of the existing volume for the StatefulSet, this option can be used to bind to an existing PV
   existingVolume: ""
   # Name of the existing PVC to use with Deployment, this option can be used to use an existing PVC
   existingClaim: ""
   # Annotations to add to the persistent volume claim
   annotations:
-    volume.beta.kubernetes.io/storage-class: "freenas-nfs-csi"
+    volume.beta.kubernetes.io/storage-class: "freenas-iscsi-csi"
   #  k8up.io/backup: "true"
   #  another-annotation: "value"
   ## Persistent Volume selectors
