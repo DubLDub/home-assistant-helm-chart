@@ -20,7 +20,7 @@ spec:
           service:
             name: home-assistant
             port: 
-              name: http-tcp  # < same label as the port in the service tcp file
+              name: http  # < same label as the port in the service tcp file
   tls: # < placing a host in the TLS config will indicate a cert should be created
   - hosts:
     - home-assistant.wawh.win
