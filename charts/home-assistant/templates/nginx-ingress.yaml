@@ -4,8 +4,9 @@ metadata:
   name: home-assistant          # < name of ingress entry
   namespace: home-assistant     # < namespace where place the ingress enty
   annotations:
-    kubernetes.io/ingress.class: "nginx"  # < use the nginx ingress controller
-#    nginx.ingress.kubernetes.io/backend-protocol: "HTTPS" # < communicate in https with the backend (service/pod). With a "#" in front of http will be used.
+    # nginx.ingress.kubernetes.io/backend-protocol: "HTTPS" # < communicate in https with the backend (service/pod). With a "#" in front of http will be used.
+    # kubernetes.io/ingress.class removed to avoid conflict with spec.ingressClassName
+    # nginx.ingress.kubernetes.io/backend-protocol: "HTTPS" # < communicate in https with the backend (service/pod). With a "#" in front of http will be used.
     cert-manager.io/cluster-issuer: "letsencrypt-issuer" # < use letsencrypt-prod application in kubernetes to generate ssl certificate
 #    nginx.ingress.kubernetes.io/app-root:  # < the root directory here if it's different from the root directory (like /web).
 spec:
