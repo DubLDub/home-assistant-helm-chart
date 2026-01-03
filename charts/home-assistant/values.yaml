@@ -130,11 +130,14 @@ ingress:
       paths:
         - path: /
           pathType: ImplementationSpecific
-  tls: 
+  tls: []
+  #  - secretName: chart-example-tls
+  #    hosts:
+  #      - chart-example.local
   - hosts:
     - home-assistant.wawh.win
     secretName: home-assistant.wawh.win-tls # < cert-manager will store the created certificate in this secret.
-
+    
 # Additional ingresses for exposing Home Assistant on different paths/hosts
 # Useful for IoT devices that don't support TLS or need specific path routing
 additionalIngresses: []
