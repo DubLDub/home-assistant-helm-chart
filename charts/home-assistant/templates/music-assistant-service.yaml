@@ -8,7 +8,7 @@ metadata:
     metallb.universe.tf/loadBalancerIPs: 192.168.1.243
 spec:
   selector:
-    app: metube
+    app: music-assistant
   ports:
   - port: 8095
     targetPort: 8095
