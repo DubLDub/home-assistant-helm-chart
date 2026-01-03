@@ -1,0 +1,49 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: music-assistant
+  name: music-assistant
+  namespace: home-assistant
+spec:
+  progressDeadlineSeconds: 600
+  replicas: 1
+  strategy:
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
+    type: RollingUpdate
+  selector:
+    matchLabels:
+      app: music-assistant
+  template:
+    metadata:
+      labels:
+        app: music-assistant
+    spec:
+      nodeSelector:
+        kubernetes.io/hostname: homelab4
+      containers:
+      - name: music-assistant
+        image: ghcr.io/music-assistant/server
+        imagePullPolicy: Always
+        # env:
+        # - name: DOWNLOAD_DIR
+        #   value: /data/videos
+        # - name: AUDIO_DOWNLOAD_DIR
+        #   value: /data/music
+        # - name: CREATE_CUSTOM_DIRS
+        #   value: "true"
+        ports:
+        - containerPort: 8095
+          name: http-tcp
+        resources: {}
+        volumeMounts:
+        - mountPath: /data
+          name: plex-video-shared
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
+      volumes:
+      - name: plex-video-shared
+        persistentVolumeClaim:
+          claimName: music-assistant-pvc

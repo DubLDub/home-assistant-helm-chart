@@ -1,0 +1,16 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: music-assistant
+  namespace: home-assistant
+  annotations:
+    metallb.universe.tf/address-pool: ip-pool-internal
+    metallb.universe.tf/loadBalancerIPs: 192.168.1.243
+spec:
+  selector:
+    app: metube
+  ports:
+  - port: 8095
+    targetPort: 8095
+    name: http
+  type: LoadBalancer
