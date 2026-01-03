@@ -13,4 +13,10 @@ spec:
   - port: 8095
     targetPort: 8095
     name: http
+  - port: 1704
+    targetPort: 1704
+    name: snapcast-stream
+  - port: 1705
+    targetPort: 1705
+    name: snapcast-control
   type: LoadBalancer
