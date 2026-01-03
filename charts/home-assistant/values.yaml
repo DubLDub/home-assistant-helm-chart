@@ -115,24 +115,25 @@ service:
 # Ingress settings
 ingress:
   # Enable ingress for home assistant
-  enabled: false
+  enabled: true
   # Enable external ingress (cannot be true when ingress.enabled is true)
   external: false
-  className: ""
+  className: "nginx"
   labels: {}
   annotations:
     {}
     # kubernetes.io/ingress.class: nginx
     # kubernetes.io/tls-acme: "true"
+    cert-manager.io/cluster-issuer: "letsencrypt-issuer" # < use letsencrypt-prod application in kubernetes to generate ssl certificate
   hosts:
-    - host: chart-example.local
+    - host: home-assistant.wawh.win
       paths:
         - path: /
           pathType: ImplementationSpecific
-  tls: []
-  #  - secretName: chart-example-tls
-  #    hosts:
-  #      - chart-example.local
+  tls: 
+  - hosts:
+    - home-assistant.wawh.win
+    secretName: home-assistant.wawh.win-tls # < cert-manager will store the created certificate in this secret.
 
 # Additional ingresses for exposing Home Assistant on different paths/hosts
 # Useful for IoT devices that don't support TLS or need specific path routing
