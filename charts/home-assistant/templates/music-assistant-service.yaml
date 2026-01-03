@@ -19,4 +19,7 @@ spec:
   - port: 1705
     targetPort: 1705
     name: snapcast-control
+  - port: 1780
+    targetPort: 1780
+    name: snapcast-main
   type: LoadBalancer
