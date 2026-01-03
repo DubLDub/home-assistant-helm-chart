@@ -104,11 +104,13 @@ dnsConfig: {}
 # Service settings
 service:
   # Service type (ClusterIP, NodePort, LoadBalancer, or ExternalName)
-  type: ClusterIP
+  type: LoadBalancer
   # Service port
   port: 8080
   # Annotations to add to the service
-  annotations: {}
+  annotations:
+    metallb.universe.tf/address-pool: ip-pool-internal
+    metallb.universe.tf/loadBalancerIPs: 192.168.1.254
 
 # Ingress settings
 ingress:
