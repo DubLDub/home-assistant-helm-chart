@@ -1,0 +1,44 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: zwave-js-ui
+  namespace: zwave
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: zwave-js-ui
+  template:
+    metadata:
+      labels:
+        app: zwave-js-ui
+    spec:
+      containers:
+        - name: zwave-js-ui
+          image: zwavejs/zwave-js-ui:latest
+          ports:
+            - containerPort: 8091
+            - containerPort: 3000
+          env:
+            - name: TZ
+              value: "UTC"
+          volumeMounts:
+            - name: config
+              mountPath: /usr/src/app/store
+            - name: usb
+              mountPath: /dev/zwave
+              readOnly: false
+          securityContext:
+            privileged: false
+            allowPrivilegeEscalation: false
+            capabilities:
+              add:
+                - SYS_RAWIO   # Only if needed for low-level I/O
+      volumes:
+        - name: config
+          persistentVolumeClaim:
+            claimName: zwave-config
+        - name: usb
+          hostPath:
+            path: /dev/serial/by-id/usb-Silicon_Labs_CP2105_Dual_USB_to_UART_Bridge_Controller_015EC5AC-if00-port0   # Stable device path
+            type: CharDevice

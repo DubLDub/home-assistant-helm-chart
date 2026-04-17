@@ -1,0 +1,17 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: zwave
+  namespace: home-assistant
+  annotations:
+    metallb.universe.tf/address-pool: ip-pool-internal
+    metallb.universe.tf/loadBalancerIPs: 192.168.1.137
+spec:
+  selector:
+    app: zwave-js-ui
+  ports:
+  - port: 3000
+    targetPort: 3000
+  - port: 8091
+    targetPort: 8091
+  type: LoadBalancer
