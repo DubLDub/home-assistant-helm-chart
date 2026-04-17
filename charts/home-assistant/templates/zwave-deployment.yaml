@@ -13,6 +13,8 @@ spec:
       labels:
         app: zwave-js-ui
     spec:
+      nodeSelector:
+        kubernetes.io/hostname: homelab4
       containers:
         - name: zwave-js-ui
           image: zwavejs/zwave-js-ui:latest
