@@ -12,6 +12,8 @@ spec:
   ports:
   - port: 3000
     targetPort: 3000
+    name: randomPort
   - port: 8091
     targetPort: 8091
+    name: http
   type: LoadBalancer
