@@ -5,7 +5,7 @@ metadata:
   namespace: home-assistant
   annotations:
     metallb.universe.tf/address-pool: ip-pool-internal
-    metallb.universe.tf/loadBalancerIPs: 192.168.1.137
+    metallb.universe.tf/loadBalancerIPs: 192.168.1.237
 spec:
   selector:
     app: zwave-js-ui
