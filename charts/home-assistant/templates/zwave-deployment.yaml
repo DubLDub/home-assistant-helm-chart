@@ -42,5 +42,5 @@ spec:
             claimName: zwave-config
         - name: usb
           hostPath:
-            path: /dev/serial/by-id/usb-Silicon_Labs_CP2105_Dual_USB_to_UART_Bridge_Controller_015EC5AC-if00-port0   # Stable device path
+            path: /dev/serial/by-id/usb-Silicon_Labs_CP2105_Dual_USB_to_UART_Bridge_Controller_015EC5AC-if01-port0   # Stable device path
             type: CharDevice
