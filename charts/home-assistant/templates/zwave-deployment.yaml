@@ -1,25 +1,24 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: zwave-js-ui
+  name: zwave-js
   namespace: home-assistant
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: zwave-js-ui
+      app: zwave-js
   template:
     metadata:
       labels:
-        app: zwave-js-ui
+        app: zwave-js
     spec:
       nodeSelector:
         kubernetes.io/hostname: homelab4
       containers:
-        - name: zwave-js-ui
-          image: zwavejs/zwave-js-ui:latest
+        - name: zwave-js
+          image: zwavejs/zwave-js:latest
           ports:
-            - containerPort: 8091
             - containerPort: 3000
           env:
             - name: TZ

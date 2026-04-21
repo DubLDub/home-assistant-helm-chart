@@ -8,12 +8,9 @@ metadata:
     metallb.universe.tf/loadBalancerIPs: 192.168.1.237
 spec:
   selector:
-    app: zwave-js-ui
+    app: zwave-js
   ports:
   - port: 3000
     targetPort: 3000
-    name: randomport
-  - port: 8091
-    targetPort: 8091
-    name: http
+    name: api
   type: LoadBalancer
