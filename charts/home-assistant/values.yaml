@@ -80,7 +80,10 @@ hostNetwork: false
 
 # Container security context settings
 securityContext:
-  {}
+  allowPrivilegeEscalation: false
+  capabilities:
+    add:
+      - SYS_RAWIO
   # capabilities:
   #   drop:
   #   - ALL

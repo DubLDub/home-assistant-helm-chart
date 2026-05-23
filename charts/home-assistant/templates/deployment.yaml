@@ -50,15 +50,9 @@ spec:
       containers:
         - name: {{ .Chart.Name }}
           securityContext:
-            {{- with .Values.securityContext }}
-            {{- toYaml . | nindent 12 }}
-            {{- end }}
-            allowPrivilegeEscalation: false
-            capabilities:
-              add:
-                - SYS_RAWIO
+            {{- toYaml .Values.securityContext | nindent 12 }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
-          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          imagePullPolicy: {{ .Values.image.pullPolicy }} 
           {{- with .Values.envFrom }}
           envFrom:
             {{- toYaml . | nindent 12 }}
