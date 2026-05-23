@@ -27,8 +27,11 @@ spec:
           volumeMounts:
             - name: config
               mountPath: /usr/src/app/store
-            - name: usb
+            - name: usb-device
               mountPath: /dev/ttyUSB0
+              readOnly: false
+            - name: usb-by-id
+              mountPath: /dev/serial/by-id
               readOnly: false
           securityContext:
             runAsUser: 0
@@ -41,7 +44,11 @@ spec:
         - name: config
           persistentVolumeClaim:
             claimName: zwave-config
-        - name: usb
+        - name: usb-device
           hostPath:
             path: /dev/ttyUSB0
             type: CharDevice
+        - name: usb-by-id
+          hostPath:
+            path: /dev/serial/by-id
+            type: Directory
