@@ -32,7 +32,7 @@ spec:
               readOnly: false
           securityContext:
             privileged: true
-            allowPrivilegeEscalation: false
+            allowPrivilegeEscalation: true
             capabilities:
               add:
                 - SYS_RAWIO   # Only if needed for low-level I/O
