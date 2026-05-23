@@ -31,7 +31,7 @@ spec:
               mountPath: /dev/zwave
               readOnly: false
           securityContext:
-            privileged: false
+            privileged: true
             allowPrivilegeEscalation: false
             capabilities:
               add:
