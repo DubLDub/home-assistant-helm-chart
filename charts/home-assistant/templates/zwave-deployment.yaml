@@ -4,7 +4,7 @@ metadata:
   name: zwave-js-ui
   namespace: home-assistant
 spec:
-  replicas: 0
+  replicas: 1
   selector:
     matchLabels:
       app: zwave-js-ui
