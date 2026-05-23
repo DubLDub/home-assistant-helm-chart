@@ -90,9 +90,6 @@ spec:
           volumeMounts:
           - mountPath: /config
             name: {{ include "home-assistant.fullname" . }}-pvc
-          - mountPath: /dev/zwave
-            name: usb
-            readOnly: false
           {{- if .Values.additionalMounts }}
             {{- .Values.additionalMounts | toYaml | nindent 10 }}
           {{- end }}
@@ -202,10 +199,6 @@ spec:
         configMap:
           name: hass-configuration
       {{- end }}
-      - name: usb
-        hostPath:
-          path: /dev/serial/by-id/usb-Silicon_Labs_CP2105_Dual_USB_to_UART_Bridge_Controller_015EC5AC-if01-port0   # Stable device path
-          type: CharDevice
       {{- if not .Values.persistence.enabled }}
       - name: {{ include "home-assistant.fullname" . }}-pvc
         emptyDir: {}
