@@ -172,7 +172,7 @@ resources:
 
 # Node selector settings for scheduling the pod on specific nodes
 nodeSelector:
-  kubernetes.io/hostname: homelab4
+  kubernetes.io/hostname: hl-02
 
 # Tolerations settings for scheduling the pod based on node taints
 tolerations: []
