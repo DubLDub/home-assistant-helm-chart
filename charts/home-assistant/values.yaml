@@ -113,7 +113,7 @@ service:
   # Annotations to add to the service
   annotations:
     metallb.universe.tf/address-pool: ip-pool-internal
-    metallb.universe.tf/loadBalancerIPs: 192.168.1.250
+    metallb.universe.tf/loadBalancerIPs: 192.168.1.201
 
 # Ingress settings
 ingress:
@@ -315,7 +315,7 @@ configuration:
 # Persistence values for the Home Assistant instance
 persistence:
   # Enable or disable persistence
-  enabled: true
+  enabled: false
   # Access mode for the persistent volume claim
   accessMode: ReadWriteOnce
   # Size of the persistent volume claim
