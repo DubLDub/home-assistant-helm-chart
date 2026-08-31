@@ -21,8 +21,6 @@ spec:
       labels:
         app: music-assistant
     spec:
-      nodeSelector:
-        kubernetes.io/hostname: homelab4
       containers:
       - name: music-assistant
         image: ghcr.io/music-assistant/server
