@@ -5,7 +5,7 @@ metadata:
   namespace: home-assistant
   annotations:
     metallb.universe.tf/address-pool: ip-pool-internal
-    metallb.universe.tf/loadBalancerIPs: 192.168.1.243
+    metallb.universe.tf/loadBalancerIPs: 192.168.1.204
 spec:
   selector:
     app: music-assistant

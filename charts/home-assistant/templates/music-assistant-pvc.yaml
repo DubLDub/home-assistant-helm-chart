@@ -4,9 +4,9 @@ metadata:
   name: music-assistant-pvc
   namespace: home-assistant
   annotations:
-    volume.beta.kubernetes.io/storage-class: "freenas-iscsi-csi"
+    volume.beta.kubernetes.io/storage-class: "truenas-nvmeof"
 spec:
-  storageClassName: freenas-iscsi-csi
+  storageClassName: truenas-nvmeof
   accessModes:
     - ReadWriteOnce
   resources:
