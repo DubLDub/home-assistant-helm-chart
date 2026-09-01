@@ -35,6 +35,8 @@ spec:
         ports:
         - containerPort: 8095
           name: http-tcp
+        - containerPort: 8927
+          name: sendspin
         resources: {}
         volumeMounts:
         - mountPath: /data

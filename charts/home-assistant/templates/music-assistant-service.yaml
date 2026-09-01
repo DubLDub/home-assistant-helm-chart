@@ -22,4 +22,7 @@ spec:
   - port: 1780
     targetPort: 1780
     name: snapcast-main
+  - port: 8927
+    targetPort: 8927
+    name: sendspin
   type: LoadBalancer
